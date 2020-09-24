@@ -14,16 +14,19 @@ socks5代理建议到novpn.cn申请一个
 
 ## 第一讲
 
-http://www.bilibili.com/video/av754623552?share_medium=android&share_source=copy_link&bbid=XZB83ADB71BE7D1C981671E7DE63ECE60717B&ts=1600738692588
+https://www.bilibili.com/video/BV1Nk4y117f2/
 
 ## 第二讲
 
-http://www.bilibili.com/video/av584613580?share_medium=android&share_source=copy_link&bbid=XZB83ADB71BE7D1C981671E7DE63ECE60717B&ts=1600738743593
+https://www.bilibili.com/video/BV1oz4y1o7fx/
 
 ## 第三讲
 
-http://www.bilibili.com/video/av329698077?share_medium=android&share_source=copy_link&bbid=XZB83ADB71BE7D1C981671E7DE63ECE60717B&ts=1600738774002
+https://www.bilibili.com/video/BV1jA411J7Jj/
 
 ## 第四讲
+https://www.bilibili.com/video/BV1va4y1j7Q8/
 
-http://www.bilibili.com/video/av669649362?share_medium=android&share_source=copy_link&bbid=XZB83ADB71BE7D1C981671E7DE63ECE60717B&ts=1600738811761
+## 第五讲
+
+https://www.bilibili.com/video/BV1e54y1y7eq/
