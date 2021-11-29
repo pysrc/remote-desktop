@@ -1,11 +1,13 @@
 import struct
 import socket
-from PIL import ImageGrab
+# fix for linux
+import pyscreenshot as ImageGrab
 from cv2 import cv2
 import numpy as np
 import threading
 import keyboard
 import mouse
+import time
 
 bufsize = 1024
 
@@ -191,38 +193,41 @@ def ctrl(conn):
     '''
     def Op(key, op, ox, oy):
         # print(key, op, ox, oy)
-        if key == 1:
+        if key== 4:
+            # 鼠标移动
+            mouse.move(ox, oy)
+        elif key == 1:
             if op == 100:
                 # 左键按下
-                mouse.move(ox, oy)
+                # mouse.move(ox, oy)
                 mouse.press(button=mouse.LEFT)
             elif op == 117:
                 # 左键弹起
-                x, y = mouse.get_position()
-                if ox != x or oy != y:
-                    if not mouse.is_pressed():
-                        mouse.press(button=mouse.LEFT)
-                    mouse.move(ox, oy)
+                # x, y = mouse.get_position()
+                # if ox != x or oy != y:
+                #     if not mouse.is_pressed():
+                #         mouse.press(button=mouse.LEFT)
+                #     mouse.move(ox, oy)
                 mouse.release(button=mouse.LEFT)
         elif key == 2:
             # 滚轮事件
             if op == 0:
                 # 向上
-                mouse.move(ox, oy)
+                # mouse.move(ox, oy)
                 mouse.wheel(delta=-1)
             else:
                 # 向下
-                mouse.move(ox, oy)
+                # mouse.move(ox, oy)
                 mouse.wheel(delta=1)
         elif key == 3:
             # 鼠标右键
             if op == 100:
                 # 右键按下
-                mouse.move(ox, oy)
+                # mouse.move(ox, oy)
                 mouse.press(button=mouse.RIGHT)
             elif op == 117:
                 # 右键弹起
-                mouse.move(ox, oy)
+                # mouse.move(ox, oy)
                 mouse.release(button=mouse.RIGHT)
         else:
             k = official_virtual_keys.get(key)
@@ -265,7 +270,8 @@ def handle(conn):
     conn.sendall(lenb)
     conn.sendall(imbyt)
     while True:
-        cv2.waitKey(100)
+        # fix for linux
+        time.sleep(0.05)
         gb = ImageGrab.grab()
         imgnpn = np.asarray(gb)
         _, timbyt= cv2.imencode(".jpg", imgnpn, [cv2.IMWRITE_JPEG_QUALITY,IMQUALITY])

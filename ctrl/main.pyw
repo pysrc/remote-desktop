@@ -179,6 +179,11 @@ def BindEvents(canvas):
         else:
             return EventDo(struct.pack('>BBHH', 2, 1, int(e.x/scale), int(e.y/scale)))
     canvas.bind(sequence="<MouseWheel>", func=Wheel)
+    
+    # 鼠标滑动
+    def Move(e):
+        return EventDo(struct.pack('>BBHH', 4, 0, int(e.x/scale), int(e.y/scale)))
+    canvas.bind(sequence="<Motion>", func=Move)
 
     # 键盘
     def KeyDown(e):
