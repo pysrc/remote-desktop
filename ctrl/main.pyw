@@ -40,16 +40,20 @@ soc = None
 socks5 = None
 
 # 初始化socket
+
+
 def SetSocket():
     global soc, host_en
+
     def byipv4(ip, port):
-	    return struct.pack(">BBBBBBBBH", 5, 1, 0, 1, ip[0], ip[1], ip[2], ip[3], port)
+        return struct.pack(">BBBBBBBBH", 5, 1, 0, 1, ip[0], ip[1], ip[2], ip[3], port)
+
     def byhost(host, port):
         d = struct.pack(">BBBB", 5, 1, 0, 3)
         blen = len(host)
-        d+=struct.pack(">B", blen)
-        d+=host.encode()
-        d+=struct.pack(">H", port)
+        d += struct.pack(">B", blen)
+        d += host.encode()
+        d += struct.pack(">H", port)
         return d
     host = host_en.get()
     if host is None:
@@ -83,7 +87,7 @@ def SetSocket():
             soc.sendall(hand)
         # 代理回应
         rcv = b''
-        while len(rcv)!=10:
+        while len(rcv) != 10:
             rcv += soc.recv(10-len(rcv))
         if rcv[1] != 0:
             tkinter.messagebox.showinfo('提示', '代理回应错误！')
@@ -98,9 +102,11 @@ def SetScale(x):
     scale = float(x) / 100
     wscale = True
 
+
 def ShowProxy():
     # 显示代理设置
     global root
+
     def set_s5_addr():
         global socks5
         socks5 = s5_en.get()
@@ -149,6 +155,8 @@ sca.set(100)
 val.set('127.0.0.1:80')
 
 last_send = time.time()*1000
+
+
 def BindEvents(canvas):
     global soc, scale
     '''
@@ -182,7 +190,7 @@ def BindEvents(canvas):
         else:
             return EventDo(struct.pack('>BBHH', 2, 1, int(e.x/scale), int(e.y/scale)))
     canvas.bind(sequence="<MouseWheel>", func=Wheel)
-    
+
     # 鼠标滑动
     # 100ms发送一次
     def Move(e):
@@ -197,11 +205,11 @@ def BindEvents(canvas):
     # 键盘
     def KeyDown(e):
         return EventDo(struct.pack('>BBHH', e.keycode, 100, int(e.x/scale), int(e.y/scale)))
+
     def KeyUp(e):
         return EventDo(struct.pack('>BBHH', e.keycode, 117, int(e.x/scale), int(e.y/scale)))
     canvas.bind(sequence="<KeyPress>", func=KeyDown)
     canvas.bind(sequence="<KeyRelease>", func=KeyUp)
-
 
 
 def run():
