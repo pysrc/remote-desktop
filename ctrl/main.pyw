@@ -7,9 +7,12 @@ from PIL import Image, ImageTk
 import threading
 import re
 from cv2 import cv2
+import time
 
 root = tkinter.Tk()
 
+# 画面周期
+IDLE = 0.05
 
 # 放缩大小
 scale = 1
@@ -145,7 +148,7 @@ show_btn.grid(row=2, column=1, padx=0, pady=10, ipadx=30, ipady=0)
 sca.set(100)
 val.set('127.0.0.1:80')
 
-
+last_send = time.time()*1000
 def BindEvents(canvas):
     global soc, scale
     '''
@@ -181,8 +184,14 @@ def BindEvents(canvas):
     canvas.bind(sequence="<MouseWheel>", func=Wheel)
     
     # 鼠标滑动
+    # 100ms发送一次
     def Move(e):
-        return EventDo(struct.pack('>BBHH', 4, 0, int(e.x/scale), int(e.y/scale)))
+        global last_send
+        cu = time.time()*1000
+        if cu - last_send > 100:
+            last_send = cu
+            sx, sy = int(e.x/scale), int(e.y/scale)
+            return EventDo(struct.pack('>BBHH', 4, 0, sx, sy))
     canvas.bind(sequence="<Motion>", func=Move)
 
     # 键盘

@@ -1,6 +1,4 @@
 numpy==1.19.1
 Pillow==7.2.0
-mouse==0.7.1
-keyboard==0.13.5
+PyAutoGUI==0.9.50
 opencv-python==4.4.0.42
-pyscreenshot==3.0
