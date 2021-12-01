@@ -10,6 +10,9 @@ import pyautogui as ag
 # 画面周期
 IDLE = 0.05
 
+# 鼠标滚轮灵敏度
+SCROLL_NUM = 5
+
 bufsize = 1024
 
 host = ('0.0.0.0', 80)
@@ -187,10 +190,10 @@ def ctrl(conn):
             # 滚轮事件
             if op == 0:
                 # 向上
-                ag.scroll(-1)
+                ag.scroll(-SCROLL_NUM)
             else:
                 # 向下
-                ag.scroll(1)
+                ag.scroll(SCROLL_NUM)
         elif key == 3:
             # 鼠标右键
             if op == 100:
