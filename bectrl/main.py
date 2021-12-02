@@ -6,6 +6,7 @@ import numpy as np
 import threading
 import time
 import pyautogui as ag
+import mouse
 
 # 画面周期
 IDLE = 0.05
@@ -189,7 +190,7 @@ def ctrl(conn):
         # print(key, op, ox, oy)
         if key == 4:
             # 鼠标移动
-            ag.moveTo(ox, oy)
+            mouse.move(ox, oy)
         elif key == 1:
             if op == 100:
                 # 左键按下
