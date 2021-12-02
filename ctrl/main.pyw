@@ -204,9 +204,9 @@ def BindEvents(canvas):
                 return EventDo(struct.pack('>BBHH', 2, 1, int(e.x/scale), int(e.y/scale)))
         canvas.bind(sequence="<MouseWheel>", func=Wheel)
     elif PLAT == b'x11':
-        def WheelUp(e):
-            return EventDo(struct.pack('>BBHH', 2, 0, int(e.x/scale), int(e.y/scale)))
         def WheelDown(e):
+            return EventDo(struct.pack('>BBHH', 2, 0, int(e.x/scale), int(e.y/scale)))
+        def WheelUp(e):
             return EventDo(struct.pack('>BBHH', 2, 1, int(e.x/scale), int(e.y/scale)))
         canvas.bind(sequence="<Button-4>", func=WheelUp)
         canvas.bind(sequence="<Button-5>", func=WheelDown)
