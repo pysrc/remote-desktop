@@ -1,5 +1,5 @@
 # for windows
-keyboardMappingWin = {
+keycodeMappingWin = {
     0x08: 'backspace',  # VK_BACK
     0x5B: 'super',  # VK_LWIN
     0x09: 'tab',  # VK_TAB
@@ -154,10 +154,6 @@ keyboardMappingWin = {
     0xdd: "]",
     0xde: "'",
 }
-
-keycodeMappingWin = {}
-for k in keyboardMappingWin:
-    keycodeMappingWin[keyboardMappingWin[k]] = k
 
 # for linux
 keyboardMappingX11 = {'\t': 23, '\n': 36, '\r': 36, ' ': 65, '!': 10, '"': 48, '#': 12, '$': 13, '%': 14, '&': 16, "'": 48, '(': 187, ')': 188, '*': 17, '+': 21, ',': 59, '-': 20, '.': 60, '/': 61, '0': 19, '1': 10, '2': 11, '3': 12, '4': 13, '5': 14, '6': 15, '7': 16, '8': 17, '9': 18, ':': 47, ';': 47, '<': 94, '=': 21, '>': 60, '?': 61, '@': 11, '[': 34, '\\': 51, ']': 35, '^': 15, '_': 20, '`': 49, 'a': 38, 'b': 56, 'c': 54, 'd': 40, 'e': 26, 'f': 41, 'g': 42, 'h': 43, 'i': 31, 'j': 44, 'k': 45, 'l': 46, 'm': 58, 'n': 57, 'o': 32, 'p': 33, 'q': 24, 'r': 27, 's': 39, 't': 28, 'u': 30, 'v': 55, 'w': 25, 'x': 53, 'y': 29, 'z': 52, '{': 34, '|': 51, '}': 35, '~': 49, 'accept': None, 'add': 86, 'alt': 64, 'altleft': 64, 'altright': 108, 'apps': 135, 'backspace': 22, 'browserback': None, 'browserfavorites': None, 'browserforward': None, 'browserhome': None, 'browserrefresh': None, 'browsersearch': None, 'browserstop': None, 'capslock': 66, 'clear': None, 'convert': None, 'ctrl': 37, 'ctrlleft': 37, 'ctrlright': 105, 'decimal': 129, 'del': 119, 'delete': 119, 'divide': 106, 'down': 116, 'end': 115, 'enter': 36, 'esc': 9, 'escape': 9, 'execute': 0, 'f1': 67, 'f10': 76, 'f11': 95, 'f12': 96, 'f13': 0, 'f14': 0, 'f15': 0, 'f16': 0, 'f17': 0, 'f18': 0, 'f19': 0, 'f2': 68, 'f20': 0, 'f21': 0, 'f22': 0, 'f23': 0, 'f24': 0, 'f3': 69, 'f4': 70, 'f5': 71,

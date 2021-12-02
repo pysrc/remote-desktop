@@ -8,6 +8,8 @@ import threading
 import re
 from cv2 import cv2
 import time
+import sys
+import platform
 
 root = tkinter.Tk()
 
@@ -38,6 +40,15 @@ soc = None
 # socks5
 
 socks5 = None
+
+# 平台
+PLAT = b''
+if sys.platform == "win32":
+    PLAT = b'win'
+elif sys.platform == "darwin":
+    PLAT = b'osx'
+elif platform.system() == "Linux":
+    PLAT = b'x11'
 
 # 初始化socket
 
@@ -215,6 +226,8 @@ def BindEvents(canvas):
 def run():
     global wscale, fixh, fixw, soc, showcan
     SetSocket()
+    # 发送平台信息
+    soc.sendall(PLAT)
     lenb = soc.recv(5)
     imtype, le = struct.unpack(">BI", lenb)
     imb = b''

@@ -7,7 +7,7 @@ import threading
 import time
 import pyautogui as ag
 import mouse
-from ._keyboard import getKeycodeMapping
+from _keyboard import getKeycodeMapping
 
 # 画面周期
 IDLE = 0.05
@@ -78,7 +78,7 @@ def ctrl(conn):
         plat = b''
         while True:
             plat += conn.recv(3-len(plat))
-            if len(plat) < 3:
+            if len(plat) == 3:
                 break
         print("Plat:", plat.decode())
         keycodeMapping = getKeycodeMapping(plat)
