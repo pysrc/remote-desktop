@@ -195,12 +195,21 @@ def BindEvents(canvas):
     canvas.bind(sequence="<ButtonRelease-3>", func=RightUp)
 
     # 鼠标滚轮
-    def Wheel(e):
-        if e.delta < 0:
+    if PLAT == b'win' or PLAT == 'osx':
+        # windows/mac
+        def Wheel(e):
+            if e.delta < 0:
+                return EventDo(struct.pack('>BBHH', 2, 0, int(e.x/scale), int(e.y/scale)))
+            else:
+                return EventDo(struct.pack('>BBHH', 2, 1, int(e.x/scale), int(e.y/scale)))
+        canvas.bind(sequence="<MouseWheel>", func=Wheel)
+    elif PLAT == b'x11':
+        def WheelUp(e):
             return EventDo(struct.pack('>BBHH', 2, 0, int(e.x/scale), int(e.y/scale)))
-        else:
+        def WheelDown(e):
             return EventDo(struct.pack('>BBHH', 2, 1, int(e.x/scale), int(e.y/scale)))
-    canvas.bind(sequence="<MouseWheel>", func=Wheel)
+        canvas.bind(sequence="<Button-4>", func=WheelUp)
+        canvas.bind(sequence="<Button-5>", func=WheelDown)
 
     # 鼠标滑动
     # 100ms发送一次
