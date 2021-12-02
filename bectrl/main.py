@@ -167,6 +167,17 @@ keyboardMapping = {
     0xb5: 'launchmediaselect',  # VK_LAUNCH_MEDIA_SELECT
     0xb6: 'launchapp1',  # VK_LAUNCH_APP1
     0xb7: 'launchapp2',  # VK_LAUNCH_APP2
+    0xba: ";",
+    0xbb: "=",
+    0xbc: ",",
+    0xbd: "-",
+    0xbe: ".",
+    0xbf: "/",
+    0xc0: "`",
+    0xdb: "[",
+    0xdc: "\\",
+    0xdd: "]",
+    0xde: "'",
 }
 
 
