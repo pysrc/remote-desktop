@@ -10,6 +10,10 @@ socks5代理建议到novpn.cn申请一个
 
 `pip install -r requirements.txt`
 
+# Rust实现
+
+https://github.com/pysrc/diffscreen
+
 # 实现讲解视频地址
 
 ## 第一讲
