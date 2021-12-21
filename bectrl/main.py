@@ -127,7 +127,7 @@ def handle(conn):
         imnp = np.asarray(timbyt, np.uint8)
         imgnew = cv2.imdecode(imnp, cv2.IMREAD_COLOR)
         # 计算图像差值
-        imgs = imgnew - img
+        imgs = imgnew ^ img
         if (imgs != 0).any():
             # 画质改变
             pass

@@ -287,7 +287,7 @@ def run():
                 img = ims
             else:
                 # 差异传
-                img = img + ims
+                img = img ^ ims
             imt = cv2.resize(img, (w, h))
             imsh = cv2.cvtColor(imt, cv2.COLOR_RGB2RGBA)
             imi = Image.fromarray(imsh)
