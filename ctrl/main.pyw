@@ -252,7 +252,7 @@ def run():
     img = cv2.imdecode(data, cv2.IMREAD_COLOR)
     h, w, _ = img.shape
     fixh, fixw = h, w
-    imsh = cv2.cvtColor(img, cv2.COLOR_BGR2RGBA)
+    imsh = cv2.cvtColor(img, cv2.COLOR_RGB2RGBA)
     imi = Image.fromarray(imsh)
     imgTK = ImageTk.PhotoImage(image=imi)
     cv = tkinter.Canvas(showcan, width=w, height=h, bg="white")
