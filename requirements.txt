@@ -1,5 +1,5 @@
-numpy==1.19.1
-Pillow==7.2.0
-PyAutoGUI==0.9.50
-opencv-python==4.4.0.42
+numpy==1.22.1
+Pillow==9.0.0
+PyAutoGUI==0.9.53
+opencv-python==4.5.5.62
 mouse==0.7.1
