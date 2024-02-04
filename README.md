@@ -4,8 +4,6 @@ bectrl为被控端代码
 
 ctrl为控制端代码
 
-socks5代理建议到novpn.cn申请一个
-
 # 安装依赖
 
 `pip install -r requirements.txt`
